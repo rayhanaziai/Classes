@@ -1,6 +1,7 @@
 """This file should have our order classes in it."""
 from random import randint
-
+from datetime import datetime 
+from datetime import date
 
 class AbstractMelonOrder(object):
     """"""
@@ -34,6 +35,10 @@ class AbstractMelonOrder(object):
         """"""
 
         base_price = randint(5, 9)
+        now = datetime.now()
+
+        if now.weekday() in range(5) and now.hour in range(8, 12):
+            base_price += 4
         return base_price
 
 
